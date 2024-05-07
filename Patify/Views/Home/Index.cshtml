@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> localizer
+<head>
+    <style>
+        body {
+            background-image: url("/img/pati1.jpg");
+        }
+    </style>
+</head>
+
+
+<body>
+    <main>
+        <div class="bg-dark px-4 py-5 text-center text-white">
+            <div class="py-5">
+                <h1 class="display-5 fw-bold">Arkadaş edinmek ister misiniz?</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">
+                        Çünkü hepsi sevgi dolu bir aileyi hak ediyor...
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+
+
+
+                        <a asp-controller="Advert" asp-action="AllAdverts" class="btn btn-outline-light btn-lg">
+                            <i class="fa-solid fa-caret-right"></i>  Sahiplen
+                        </a>
+
+                        <a asp-controller="Advert" asp-action="Create" class="btn btn-outline-warning btn-lg">
+                            <i class="fa-solid fa-caret-right"></i>  Yuva Bul
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

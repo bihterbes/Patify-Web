@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Patify.Models.Advert>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Header)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalRace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SizeOfAnimal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromWho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publish)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Header)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnimalName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnimalAge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnimalRace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SizeOfAnimal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromWho)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Photo)*@
+                    <img src="@Url.Content(item.Photo)" class="d-block w-50" asp-append-version="true" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publish)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AdvertId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AdvertId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AdvertId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

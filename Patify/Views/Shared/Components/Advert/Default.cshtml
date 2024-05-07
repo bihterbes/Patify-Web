@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Advert>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-2 shadow">
+        <div class="row">
+            <div class="col-4">
+                <img src="@Url.Content(item.Photo)" class="d-block w-50" asp-append-version="true" />
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Header</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a asp-controller="Advert" asp-action="Details" asp-route-id="@item.AdvertId">İlanı Görüntüle</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
